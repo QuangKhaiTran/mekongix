@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { useState } from "react"
-import { Menu, X } from "lucide-react"
+import { Menu, X, Home, Users, Briefcase, Package, BookOpen, Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
   Sheet,
@@ -14,12 +14,12 @@ import {
 import { motion } from "framer-motion"
 
 const navigation = [
-  { name: "Trang chủ", href: "/" },
-  { name: "Về chúng tôi", href: "/about" },
-  { name: "Dịch vụ", href: "/services" },
-  { name: "Sản phẩm", href: "/products" },
-  { name: "Blog", href: "/blog" },
-  { name: "Liên hệ", href: "/contact" },
+  { name: "Trang chủ", href: "/", icon: Home },
+  { name: "Về chúng tôi", href: "/about", icon: Users },
+  { name: "Dịch vụ", href: "/services", icon: Briefcase },
+  { name: "Sản phẩm", href: "/products", icon: Package },
+  { name: "Blog", href: "/blog", icon: BookOpen },
+  { name: "Liên hệ", href: "/contact", icon: Mail },
 ]
 
 export function Header() {
@@ -80,16 +80,20 @@ export function Header() {
               <div className="flex-1 overflow-y-auto bg-background px-6 py-6">
                 <nav className="flex flex-col h-full">
                   <div className="space-y-1">
-                    {navigation.map((item) => (
-                      <Link
-                        key={item.name}
-                        href={item.href}
-                        className="block rounded-lg px-3 py-2 text-base font-medium text-foreground transition-colors hover:bg-secondary"
-                        onClick={() => setMobileMenuOpen(false)}
-                      >
-                        {item.name}
-                      </Link>
-                    ))}
+                    {navigation.map((item) => {
+                      const Icon = item.icon
+                      return (
+                        <Link
+                          key={item.name}
+                          href={item.href}
+                          className="flex items-center gap-3 rounded-lg px-3 py-2 text-base font-medium text-foreground transition-colors hover:bg-secondary"
+                          onClick={() => setMobileMenuOpen(false)}
+                        >
+                          <Icon className="h-5 w-5 shrink-0" />
+                          {item.name}
+                        </Link>
+                      )
+                    })}
                   </div>
                   <div className="mt-auto pt-6 border-t border-border">
                     <Button
@@ -106,21 +110,25 @@ export function Header() {
           </Sheet>
         </div>
         <div className="hidden lg:flex lg:gap-x-8">
-          {navigation.map((item, index) => (
-            <motion.div
-              key={item.name}
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: 0.1 + index * 0.05 }}
-            >
-              <Link
-                href={item.href}
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+          {navigation.map((item, index) => {
+            const Icon = item.icon
+            return (
+              <motion.div
+                key={item.name}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: 0.1 + index * 0.05 }}
               >
-                {item.name}
-              </Link>
-            </motion.div>
-          ))}
+                <Link
+                  href={item.href}
+                  className="flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  <Icon className="h-4 w-4 shrink-0" />
+                  {item.name}
+                </Link>
+              </motion.div>
+            )
+          })}
         </div>
         <motion.div
           initial={{ opacity: 0, x: 20 }}
