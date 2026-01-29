@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { useState } from "react"
+import { usePathname } from "next/navigation"
 import { Menu, X, Home, Users, Briefcase, Package, BookOpen, Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
@@ -11,7 +12,6 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
-import { motion } from "framer-motion"
 
 const navigation = [
   { name: "Trang chủ", href: "/", icon: Home },
@@ -24,27 +24,18 @@ const navigation = [
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const pathname = usePathname()
 
   return (
-    <motion.header
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-      className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border"
-    >
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="flex lg:flex-1"
-        >
+        <div className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5">
             <span className="text-2xl font-bold text-foreground">
               Mekong<span className="text-accent">ix</span>
             </span>
           </Link>
-        </motion.div>
+        </div>
         <div className="flex lg:hidden">
           <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
             <SheetTrigger asChild>
@@ -82,16 +73,31 @@ export function Header() {
                   <div className="space-y-1">
                     {navigation.map((item) => {
                       const Icon = item.icon
+                      const isActive = pathname === item.href
                       return (
-                        <Link
-                          key={item.name}
-                          href={item.href}
-                          className="flex items-center gap-3 rounded-lg px-3 py-2 text-base font-medium text-foreground transition-colors hover:bg-secondary"
-                          onClick={() => setMobileMenuOpen(false)}
-                        >
-                          <Icon className="h-5 w-5 shrink-0" />
-                          {item.name}
-                        </Link>
+                        <div key={item.name} className="group">
+                          <Link
+                            href={item.href}
+                            className={`relative flex items-center gap-3 rounded-lg px-3 py-2 text-base font-medium transition-all duration-300 group-hover:translate-x-1 ${
+                              isActive
+                                ? "bg-accent/10 text-foreground border-l-4 border-accent"
+                                : "text-foreground hover:bg-secondary"
+                            }`}
+                            onClick={() => setMobileMenuOpen(false)}
+                          >
+                            <Icon
+                              className={`h-5 w-5 shrink-0 transition-all duration-200 ${
+                                isActive
+                                  ? "scale-110 text-accent"
+                                  : "group-hover:scale-105"
+                              }`}
+                            />
+                            <span className="relative z-10">{item.name}</span>
+                            {isActive && (
+                              <div className="absolute left-0 top-0 bottom-0 w-1 bg-accent rounded-r-full transition-all duration-300" />
+                            )}
+                          </Link>
+                        </div>
                       )
                     })}
                   </div>
@@ -110,37 +116,43 @@ export function Header() {
           </Sheet>
         </div>
         <div className="hidden lg:flex lg:gap-x-8">
-          {navigation.map((item, index) => {
+          {navigation.map((item) => {
             const Icon = item.icon
+            const isActive = pathname === item.href
             return (
-              <motion.div
-                key={item.name}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: 0.1 + index * 0.05 }}
-              >
+              <div key={item.name} className="relative">
                 <Link
                   href={item.href}
-                  className="flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                  className={`relative flex items-center gap-2 text-sm font-medium transition-all duration-300 ${
+                    isActive
+                      ? "text-foreground"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
                 >
-                  <Icon className="h-4 w-4 shrink-0" />
-                  {item.name}
+                  <div
+                    className={`absolute -bottom-1 left-0 right-0 h-0.5 bg-accent rounded-full transition-all duration-300 ease-in-out ${
+                      isActive
+                        ? "opacity-100 scale-x-100"
+                        : "opacity-0 scale-x-0"
+                    }`}
+                  />
+                  <Icon
+                    className={`h-4 w-4 shrink-0 transition-all duration-200 ${
+                      isActive ? "scale-110 text-accent" : ""
+                    }`}
+                  />
+                  <span className="relative z-10">{item.name}</span>
                 </Link>
-              </motion.div>
+              </div>
             )
           })}
         </div>
-        <motion.div
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="hidden lg:flex lg:flex-1 lg:justify-end"
-        >
+        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <Button asChild className="bg-accent text-accent-foreground hover:bg-accent/90">
             <Link href="/contact">Liên hệ ngay</Link>
           </Button>
-        </motion.div>
+        </div>
       </nav>
-    </motion.header>
+    </header>
   )
 }
