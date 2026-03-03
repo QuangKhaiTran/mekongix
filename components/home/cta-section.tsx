@@ -33,7 +33,7 @@ export function CTASection() {
             <FadeInRight className="flex flex-col sm:flex-row gap-4 lg:justify-end">
               <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                 <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 px-8">
-                  <Link href="/contact">
+                  <Link href="/lien-he">
                     Liên hệ tư vấn
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>

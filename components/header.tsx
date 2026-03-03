@@ -15,11 +15,11 @@ import {
 
 const navigation = [
   { name: "Trang chủ", href: "/", icon: Home },
-  { name: "Về chúng tôi", href: "/about", icon: Users },
-  { name: "Dịch vụ", href: "/services", icon: Briefcase },
-  { name: "Sản phẩm", href: "/products", icon: Package },
-  { name: "Blog", href: "/blog", icon: BookOpen },
-  { name: "Liên hệ", href: "/contact", icon: Mail },
+  { name: "Về chúng tôi", href: "/gioi-thieu", icon: Users },
+  { name: "Dịch vụ", href: "/dich-vu", icon: Briefcase },
+  { name: "Giải pháp", href: "/giai-phap", icon: Package },
+  { name: "Blog", href: "/bai-viet", icon: BookOpen },
+  { name: "Liên hệ", href: "/lien-he", icon: Mail },
 ]
 
 export function Header() {
@@ -107,7 +107,7 @@ export function Header() {
                       className="w-full bg-accent text-accent-foreground hover:bg-accent/90"
                       onClick={() => setMobileMenuOpen(false)}
                     >
-                      <Link href="/contact">Liên hệ ngay</Link>
+                      <Link href="/lien-he">Liên hệ ngay</Link>
                     </Button>
                   </div>
                 </nav>
@@ -149,7 +149,7 @@ export function Header() {
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <Button asChild className="bg-accent text-accent-foreground hover:bg-accent/90">
-            <Link href="/contact">Liên hệ ngay</Link>
+            <Link href="/lien-he">Liên hệ ngay</Link>
           </Button>
         </div>
       </nav>

@@ -38,9 +38,9 @@ export function HeroSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl text-balance"
           >
-            Chuyển đổi số
+            Phát triển phần mềm
             <br />
-            <span className="text-accent">cho doanh nghiệp</span> của bạn
+            <span className="text-accent">chuyển đổi số doanh nghiệp</span>
           </motion.h1>
 
           {/* Subheading */}
@@ -50,8 +50,8 @@ export function HeroSection() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground leading-relaxed text-pretty"
           >
-            Mekongix cung cấp giải pháp phần mềm, hệ thống quản lý doanh nghiệp và nền tảng SaaS hiện đại, 
-            giúp doanh nghiệp tối ưu vận hành và phát triển bền vững.
+            Công ty phát triển phần mềm hàng đầu Việt Nam. Chuyên cung cấp giải pháp ERP, CRM, 
+            phát triển web app và ứng dụng di động. Đối tác tin cậy giúp doanh nghiệp chuyển đổi số thành công.
           </motion.p>
 
           {/* CTA buttons */}
@@ -62,13 +62,13 @@ export function HeroSection() {
             className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
           >
             <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 px-8">
-              <Link href="/contact">
+              <Link href="/lien-he">
                 Tư vấn miễn phí
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
             <Button asChild variant="outline" size="lg" className="border-border text-foreground hover:bg-secondary bg-transparent">
-              <Link href="/services">
+              <Link href="/dich-vu">
                 Khám phá dịch vụ
               </Link>
             </Button>

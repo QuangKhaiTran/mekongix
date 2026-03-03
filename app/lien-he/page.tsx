@@ -9,6 +9,8 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { FadeInUp, FadeInLeft, FadeInRight, StaggerContainer, StaggerItem, motion } from "@/components/motion"
+import { StructuredData } from "@/components/seo/structured-data"
+import { getBreadcrumbSchema } from "@/lib/seo/schemas"
 import { 
   Mail, 
   Phone, 
@@ -56,6 +58,11 @@ export default function ContactPage() {
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
 
+  const breadcrumbItems = [
+    { name: 'Trang chủ', url: 'https://mekongix.com' },
+    { name: 'Liên hệ', url: 'https://mekongix.com/contact' },
+  ]
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsLoading(true)
@@ -69,6 +76,7 @@ export default function ContactPage() {
 
   return (
     <>
+      <StructuredData data={getBreadcrumbSchema(breadcrumbItems)} />
       <Header />
       <main className="pt-20">
         {/* Hero */}

@@ -4,6 +4,8 @@ import Link from "next/link"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { FadeInUp, FadeInLeft, StaggerContainer, StaggerItem, motion } from "@/components/motion"
+import { StructuredData } from "@/components/seo/structured-data"
+import { getBreadcrumbSchema } from "@/lib/seo/schemas"
 import { ArrowRight, Clock, User } from "lucide-react"
 
 
@@ -86,8 +88,14 @@ const categories = [
 ]
 
 export default function BlogPage() {
+  const breadcrumbItems = [
+    { name: 'Trang chủ', url: 'https://mekongix.com' },
+    { name: 'Blog', url: 'https://mekongix.com/blog' },
+  ]
+
   return (
     <>
+      <StructuredData data={getBreadcrumbSchema(breadcrumbItems)} />
       <Header />
       <main className="pt-20">
         {/* Hero */}

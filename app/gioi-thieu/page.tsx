@@ -4,6 +4,8 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Target, Eye, Heart, Users, Award, TrendingUp } from "lucide-react"
 import { FadeInUp, FadeInLeft, FadeInRight, StaggerContainer, StaggerItem, motion } from "@/components/motion"
+import { StructuredData } from "@/components/seo/structured-data"
+import { getBreadcrumbSchema } from "@/lib/seo/schemas"
 
 
 const values = [
@@ -48,8 +50,14 @@ const team = [
 ]
 
 export default function AboutPage() {
+  const breadcrumbItems = [
+    { name: 'Trang chủ', url: 'https://mekongix.com' },
+    { name: 'Về chúng tôi', url: 'https://mekongix.com/about' },
+  ]
+
   return (
     <>
+      <StructuredData data={getBreadcrumbSchema(breadcrumbItems)} />
       <Header />
       <main className="pt-20">
         {/* Hero */}

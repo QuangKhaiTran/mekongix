@@ -5,6 +5,8 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { FadeInUp, FadeInLeft, FadeInRight, StaggerContainer, StaggerItem, motion } from "@/components/motion"
+import { StructuredData } from "@/components/seo/structured-data"
+import { getServiceSchema, getBreadcrumbSchema } from "@/lib/seo/schemas"
 import { 
   Globe, 
   Server, 
@@ -24,90 +26,117 @@ const services = [
     id: "web-app",
     icon: Globe,
     title: "Phát triển Web & App",
-    description: "Xây dựng website và ứng dụng di động hiện đại với công nghệ tiên tiến nhất.",
+    description: "Xây dựng website và ứng dụng di động giúp doanh nghiệp tiếp cận khách hàng hiệu quả, tăng doanh thu và nâng cao trải nghiệm người dùng.",
     features: [
-      "Website doanh nghiệp & Landing page",
-      "Ứng dụng web (Web Application)",
-      "Ứng dụng di động iOS & Android",
-      "Progressive Web App (PWA)",
-      "E-commerce & Marketplace",
-      "Portal & Dashboard",
+      "Website doanh nghiệp chuyên nghiệp",
+      "Ứng dụng web quản lý nội bộ",
+      "App di động iOS & Android",
+      "Website bán hàng online",
+      "Cổng thông tin khách hàng",
+      "Hệ thống báo cáo trực quan",
     ],
-    technologies: ["React", "Next.js", "React Native", "Flutter", "Node.js", "PostgreSQL"],
+    benefits: [
+      "Tăng khả năng tiếp cận khách hàng",
+      "Tự động hóa quy trình làm việc",
+      "Giảm chi phí vận hành",
+      "Nâng cao hình ảnh thương hiệu",
+    ],
   },
   {
     id: "enterprise",
     icon: Server,
-    title: "Giải pháp ERP & CMS",
-    description: "Hệ thống quản lý doanh nghiệp toàn diện, tùy chỉnh theo quy mô và ngành nghề.",
+    title: "Giải pháp ERP & CRM",
+    description: "Hệ thống quản lý doanh nghiệp toàn diện giúp tối ưu vận hành, tăng hiệu suất làm việc và kiểm soát tài chính chặt chẽ.",
     features: [
-      "Hệ thống ERP (Quản lý tài nguyên)",
-      "CRM (Quản lý khách hàng)",
-      "HRM (Quản lý nhân sự)",
-      "SCM (Quản lý chuỗi cung ứng)",
-      "BI & Analytics Dashboard",
-      "Document Management System",
+      "Quản lý tài nguyên doanh nghiệp (ERP)",
+      "Quản lý quan hệ khách hàng (CRM)",
+      "Quản lý nhân sự và chấm công",
+      "Quản lý chuỗi cung ứng",
+      "Báo cáo và phân tích kinh doanh",
+      "Quản lý tài liệu điện tử",
     ],
-    technologies: ["SAP", "Odoo", "Custom Development", "Power BI", "Tableau"],
+    benefits: [
+      "Tăng hiệu suất làm việc 40-60%",
+      "Giảm sai sót trong quản lý",
+      "Kiểm soát chi phí tốt hơn",
+      "Ra quyết định nhanh và chính xác",
+    ],
   },
   {
     id: "saas",
     icon: Layers,
     title: "Nền tảng SaaS",
-    description: "Phát triển và triển khai các sản phẩm SaaS với khả năng mở rộng và bảo mật cao.",
+    description: "Phát triển sản phẩm phần mềm dịch vụ với khả năng mở rộng cao, giúp doanh nghiệp tạo nguồn thu định kỳ ổn định.",
     features: [
-      "Multi-tenant Architecture",
-      "Subscription Management",
-      "API Development & Integration",
-      "Microservices Architecture",
-      "Cloud Infrastructure (AWS/GCP/Azure)",
-      "DevOps & CI/CD Pipeline",
+      "Hệ thống đa khách hàng",
+      "Quản lý gói dịch vụ và thanh toán",
+      "Tích hợp API với hệ thống khác",
+      "Hạ tầng đám mây linh hoạt",
+      "Tự động mở rộng theo nhu cầu",
+      "Triển khai và cập nhật liên tục",
     ],
-    technologies: ["Kubernetes", "Docker", "AWS", "Terraform", "GraphQL", "Redis"],
+    benefits: [
+      "Tạo nguồn thu định kỳ",
+      "Mở rộng quy mô dễ dàng",
+      "Chi phí vận hành tối ưu",
+      "Cập nhật tính năng liên tục",
+    ],
   },
   {
     id: "maintenance",
     icon: Settings,
     title: "Bảo trì & Vận hành",
-    description: "Dịch vụ hỗ trợ kỹ thuật và vận hành hệ thống đảm bảo hoạt động liên tục.",
+    description: "Dịch vụ hỗ trợ và vận hành hệ thống 24/7 đảm bảo website, ứng dụng hoạt động ổn định, an toàn và hiệu quả.",
     features: [
       "Hỗ trợ kỹ thuật 24/7",
-      "Monitoring & Alert System",
-      "Performance Optimization",
-      "Security Audit & Patch",
-      "Backup & Disaster Recovery",
-      "System Upgrade & Migration",
+      "Giám sát hệ thống liên tục",
+      "Tối ưu hiệu suất",
+      "Kiểm tra bảo mật định kỳ",
+      "Sao lưu và phục hồi dữ liệu",
+      "Nâng cấp và di chuyển hệ thống",
     ],
-    technologies: ["Prometheus", "Grafana", "ELK Stack", "Datadog", "PagerDuty"],
+    benefits: [
+      "Hệ thống hoạt động 99.9% thời gian",
+      "Phát hiện và xử lý sự cố nhanh",
+      "Bảo vệ dữ liệu an toàn",
+      "Yên tâm tập trung kinh doanh",
+    ],
   },
 ]
 
 const highlights = [
   {
     icon: Smartphone,
-    title: "Responsive Design",
-    description: "Tương thích mọi thiết bị từ desktop đến mobile.",
+    title: "Dễ sử dụng",
+    description: "Giao diện thân thiện, hoạt động mượt mà trên mọi thiết bị.",
   },
   {
     icon: Database,
-    title: "Scalable Architecture",
-    description: "Kiến trúc linh hoạt, dễ dàng mở rộng theo nhu cầu.",
+    title: "Mở rộng linh hoạt",
+    description: "Dễ dàng thêm tính năng khi doanh nghiệp phát triển.",
   },
   {
     icon: Shield,
-    title: "Enterprise Security",
-    description: "Bảo mật cấp doanh nghiệp với các chuẩn quốc tế.",
+    title: "An toàn bảo mật",
+    description: "Bảo vệ dữ liệu khách hàng với tiêu chuẩn cao nhất.",
   },
   {
     icon: Clock,
-    title: "On-time Delivery",
-    description: "Cam kết bàn giao đúng tiến độ đã thỏa thuận.",
+    title: "Đúng tiến độ",
+    description: "Cam kết bàn giao đúng thời gian đã thỏa thuận.",
   },
 ]
 
 export default function ServicesPage() {
+  const breadcrumbItems = [
+    { name: 'Trang chủ', url: 'https://mekongix.com' },
+    { name: 'Dịch vụ', url: 'https://mekongix.com/dich-vu' },
+  ]
+
   return (
     <>
+      <StructuredData data={getServiceSchema()} />
+      <StructuredData data={getBreadcrumbSchema(breadcrumbItems)} />
       <Header />
       <main className="pt-20">
         {/* Hero */}
@@ -194,7 +223,7 @@ export default function ServicesPage() {
 
                       <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                         <Button asChild className="mt-8 bg-accent text-accent-foreground hover:bg-accent/90">
-                          <Link href="/contact">
+                          <Link href="/lien-he">
                             Tư vấn ngay
                             <ArrowRight className="ml-2 h-4 w-4" />
                           </Link>
@@ -229,7 +258,7 @@ export default function ServicesPage() {
 
                       <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                         <Button asChild className="mt-8 bg-accent text-accent-foreground hover:bg-accent/90">
-                          <Link href="/contact">
+                          <Link href="/lien-he">
                             Tư vấn ngay
                             <ArrowRight className="ml-2 h-4 w-4" />
                           </Link>
@@ -238,7 +267,7 @@ export default function ServicesPage() {
                     </FadeInRight>
                   )}
 
-                  {/* Tech stack card */}
+                  {/* Benefits card */}
                   {index % 2 === 0 ? (
                     <FadeInRight>
                       <motion.div
@@ -247,18 +276,16 @@ export default function ServicesPage() {
                         className="rounded-xl border border-border bg-card p-8"
                       >
                         <h3 className="text-sm font-semibold text-foreground uppercase tracking-wider">
-                          Công nghệ sử dụng
+                          Lợi ích cho doanh nghiệp
                         </h3>
-                        <div className="mt-6 flex flex-wrap gap-3">
-                          {service.technologies.map((tech) => (
-                            <span 
-                              key={tech} 
-                              className="rounded-full border border-border bg-secondary px-4 py-2 text-sm text-foreground"
-                            >
-                              {tech}
-                            </span>
+                        <ul className="mt-6 space-y-4">
+                          {service.benefits.map((benefit) => (
+                            <li key={benefit} className="flex items-start gap-3">
+                              <CheckCircle2 className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
+                              <span className="text-sm text-foreground">{benefit}</span>
+                            </li>
                           ))}
-                        </div>
+                        </ul>
                         
                         <div className="mt-8 pt-8 border-t border-border">
                           <div className="grid grid-cols-2 gap-6">
@@ -282,18 +309,16 @@ export default function ServicesPage() {
                         className="rounded-xl border border-border bg-card p-8"
                       >
                         <h3 className="text-sm font-semibold text-foreground uppercase tracking-wider">
-                          Công nghệ sử dụng
+                          Lợi ích cho doanh nghiệp
                         </h3>
-                        <div className="mt-6 flex flex-wrap gap-3">
-                          {service.technologies.map((tech) => (
-                            <span 
-                              key={tech} 
-                              className="rounded-full border border-border bg-secondary px-4 py-2 text-sm text-foreground"
-                            >
-                              {tech}
-                            </span>
+                        <ul className="mt-6 space-y-4">
+                          {service.benefits.map((benefit) => (
+                            <li key={benefit} className="flex items-start gap-3">
+                              <CheckCircle2 className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
+                              <span className="text-sm text-foreground">{benefit}</span>
+                            </li>
                           ))}
-                        </div>
+                        </ul>
                         
                         <div className="mt-8 pt-8 border-t border-border">
                           <div className="grid grid-cols-2 gap-6">
@@ -334,7 +359,7 @@ export default function ServicesPage() {
                 </p>
                 <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="inline-block">
                   <Button asChild size="lg" className="mt-8 bg-accent text-accent-foreground hover:bg-accent/90">
-                    <Link href="/contact">
+                    <Link href="/lien-he">
                       Nhận tư vấn miễn phí
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>

@@ -6,15 +6,15 @@ import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/motion"
 
 const footerLinks = {
   company: [
-    { name: "Về chúng tôi", href: "/about" },
-    { name: "Dịch vụ", href: "/services" },
-    { name: "Sản phẩm", href: "/products" },
-    { name: "Blog", href: "/blog" },
+    { name: "Về chúng tôi", href: "/gioi-thieu" },
+    { name: "Dịch vụ", href: "/dich-vu" },
+    { name: "Sản phẩm", href: "/san-pham" },
+    { name: "Blog", href: "/bai-viet" },
   ],
   services: [
-    { name: "Phát triển Web & App", href: "/services#web-app" },
-    { name: "Giải pháp doanh nghiệp", href: "/services#enterprise" },
-    { name: "Bảo trì & Vận hành", href: "/services#maintenance" },
+    { name: "Phát triển Web & App", href: "/dich-vu#web-app" },
+    { name: "Giải pháp doanh nghiệp", href: "/dich-vu#enterprise" },
+    { name: "Bảo trì & Vận hành", href: "/dich-vu#maintenance" },
   ],
   legal: [
     { name: "Chính sách bảo mật", href: "/privacy" },

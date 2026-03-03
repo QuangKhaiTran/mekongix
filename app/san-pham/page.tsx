@@ -5,6 +5,8 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { FadeInUp, FadeInLeft, FadeInRight, StaggerContainer, StaggerItem, motion } from "@/components/motion"
+import { StructuredData } from "@/components/seo/structured-data"
+import { getBreadcrumbSchema } from "@/lib/seo/schemas"
 import { 
   ArrowRight, 
   Users, 
@@ -96,8 +98,14 @@ const products = [
 ]
 
 export default function ProductsPage() {
+  const breadcrumbItems = [
+    { name: 'Trang chủ', url: 'https://mekongix.com' },
+    { name: 'Sản phẩm', url: 'https://mekongix.com/san-pham' },
+  ]
+
   return (
     <>
+      <StructuredData data={getBreadcrumbSchema(breadcrumbItems)} />
       <Header />
       <main className="pt-20">
         {/* Hero */}
@@ -191,7 +199,7 @@ export default function ProductsPage() {
                       <div className="mt-6 flex flex-col sm:flex-row gap-3">
                         <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="flex-1">
                           <Button asChild className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
-                            <Link href="/contact">
+                            <Link href="/lien-he">
                               Dùng thử miễn phí
                               <ArrowRight className="ml-2 h-4 w-4" />
                             </Link>
@@ -199,7 +207,7 @@ export default function ProductsPage() {
                         </motion.div>
                         <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="flex-1">
                           <Button asChild variant="outline" className="w-full border-border text-foreground hover:bg-secondary bg-transparent">
-                            <Link href={`/products/${product.name.toLowerCase()}`}>
+                            <Link href={`/san-pham/${product.name.toLowerCase()}`}>
                               Tìm hiểu thêm
                             </Link>
                           </Button>
@@ -258,7 +266,7 @@ export default function ProductsPage() {
                   <div className="flex flex-col gap-4 lg:items-end">
                     <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                       <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 w-full lg:w-auto">
-                        <Link href="/contact">
+                        <Link href="/lien-he">
                           Liên hệ tư vấn
                           <ArrowRight className="ml-2 h-4 w-4" />
                         </Link>

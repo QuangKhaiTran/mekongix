@@ -9,25 +9,25 @@ const services = [
     icon: Globe,
     title: "Phát triển Web & App",
     description: "Xây dựng website và ứng dụng di động hiện đại, tối ưu trải nghiệm người dùng và tương thích đa nền tảng.",
-    href: "/services#web-app",
+    href: "/dich-vu#web-app",
   },
   {
     icon: Server,
     title: "Giải pháp ERP & CMS",
     description: "Hệ thống quản lý doanh nghiệp toàn diện, tùy chỉnh theo quy mô và đặc thù ngành nghề.",
-    href: "/services#enterprise",
+    href: "/dich-vu#enterprise",
   },
   {
     icon: Layers,
     title: "Nền tảng SaaS",
     description: "Phát triển và triển khai các sản phẩm SaaS với khả năng mở rộng cao và bảo mật tốt nhất.",
-    href: "/services#saas",
+    href: "/dich-vu#saas",
   },
   {
     icon: Settings,
     title: "Bảo trì & Vận hành",
     description: "Dịch vụ hỗ trợ kỹ thuật, bảo trì hệ thống và vận hành đảm bảo hoạt động liên tục 24/7.",
-    href: "/services#maintenance",
+    href: "/dich-vu#maintenance",
   },
 ]
 
