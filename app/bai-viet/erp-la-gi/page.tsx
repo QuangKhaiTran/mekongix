@@ -21,6 +21,7 @@ export default function ERPBlogPost() {
     '@type': 'Article',
     headline: 'ERP là gì? Lợi ích của hệ thống ERP cho doanh nghiệp',
     description: 'Tìm hiểu ERP là gì, các tính năng chính, lợi ích và cách chọn phần mềm ERP phù hợp cho doanh nghiệp',
+    image: 'https://mekongix.com/logo.png',
     author: { '@type': 'Organization', name: 'Mekongix' },
     publisher: { '@type': 'Organization', name: 'Mekongix', logo: { '@type': 'ImageObject', url: 'https://mekongix.com/logo.png' } },
     datePublished: '2026-03-03',

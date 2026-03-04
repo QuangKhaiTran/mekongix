@@ -4,6 +4,7 @@ import Link from "next/link"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
+import { PlaceholderImage } from "@/components/ui/placeholder-image"
 import { FadeInUp, FadeInLeft, FadeInRight, StaggerContainer, StaggerItem, motion } from "@/components/motion"
 import { StructuredData } from "@/components/seo/structured-data"
 import { getServiceSchema, getBreadcrumbSchema } from "@/lib/seo/schemas"
@@ -267,72 +268,24 @@ export default function ServicesPage() {
                     </FadeInRight>
                   )}
 
-                  {/* Benefits card */}
+                  {/* Image */}
                   {index % 2 === 0 ? (
                     <FadeInRight>
-                      <motion.div
-                        whileHover={{ scale: 1.02, y: -4 }}
-                        transition={{ duration: 0.2 }}
-                        className="rounded-xl border border-border bg-card p-8"
+                      <PlaceholderImage 
+                        variant="product" 
+                        className="w-full aspect-[4/3] rounded-xl"
                       >
-                        <h3 className="text-sm font-semibold text-foreground uppercase tracking-wider">
-                          Lợi ích cho doanh nghiệp
-                        </h3>
-                        <ul className="mt-6 space-y-4">
-                          {service.benefits.map((benefit) => (
-                            <li key={benefit} className="flex items-start gap-3">
-                              <CheckCircle2 className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
-                              <span className="text-sm text-foreground">{benefit}</span>
-                            </li>
-                          ))}
-                        </ul>
-                        
-                        <div className="mt-8 pt-8 border-t border-border">
-                          <div className="grid grid-cols-2 gap-6">
-                            <div>
-                              <div className="text-2xl font-bold text-accent">100+</div>
-                              <div className="text-xs text-muted-foreground">Dự án hoàn thành</div>
-                            </div>
-                            <div>
-                              <div className="text-2xl font-bold text-accent">98%</div>
-                              <div className="text-xs text-muted-foreground">Khách hàng hài lòng</div>
-                            </div>
-                          </div>
-                        </div>
-                      </motion.div>
+                        <service.icon className="h-20 w-20 text-white/90" />
+                      </PlaceholderImage>
                     </FadeInRight>
                   ) : (
                     <FadeInLeft className="lg:order-1">
-                      <motion.div
-                        whileHover={{ scale: 1.02, y: -4 }}
-                        transition={{ duration: 0.2 }}
-                        className="rounded-xl border border-border bg-card p-8"
+                      <PlaceholderImage 
+                        variant="product" 
+                        className="w-full aspect-[4/3] rounded-xl"
                       >
-                        <h3 className="text-sm font-semibold text-foreground uppercase tracking-wider">
-                          Lợi ích cho doanh nghiệp
-                        </h3>
-                        <ul className="mt-6 space-y-4">
-                          {service.benefits.map((benefit) => (
-                            <li key={benefit} className="flex items-start gap-3">
-                              <CheckCircle2 className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
-                              <span className="text-sm text-foreground">{benefit}</span>
-                            </li>
-                          ))}
-                        </ul>
-                        
-                        <div className="mt-8 pt-8 border-t border-border">
-                          <div className="grid grid-cols-2 gap-6">
-                            <div>
-                              <div className="text-2xl font-bold text-accent">100+</div>
-                              <div className="text-xs text-muted-foreground">Dự án hoàn thành</div>
-                            </div>
-                            <div>
-                              <div className="text-2xl font-bold text-accent">98%</div>
-                              <div className="text-xs text-muted-foreground">Khách hàng hài lòng</div>
-                            </div>
-                          </div>
-                        </div>
-                      </motion.div>
+                        <service.icon className="h-20 w-20 text-white/90" />
+                      </PlaceholderImage>
                     </FadeInLeft>
                   )}
                 </div>

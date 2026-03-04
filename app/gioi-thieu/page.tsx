@@ -2,10 +2,11 @@
 
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { PlaceholderImage } from "@/components/ui/placeholder-image"
 import { Target, Eye, Heart, Users, Award, TrendingUp } from "lucide-react"
 import { FadeInUp, FadeInLeft, FadeInRight, StaggerContainer, StaggerItem, motion } from "@/components/motion"
 import { StructuredData } from "@/components/seo/structured-data"
-import { getBreadcrumbSchema } from "@/lib/seo/schemas"
+import { getBreadcrumbSchema, getOrganizationSchema } from "@/lib/seo/schemas"
 
 
 const values = [
@@ -52,12 +53,13 @@ const team = [
 export default function AboutPage() {
   const breadcrumbItems = [
     { name: 'Trang chủ', url: 'https://mekongix.com' },
-    { name: 'Về chúng tôi', url: 'https://mekongix.com/about' },
+    { name: 'Về chúng tôi', url: 'https://mekongix.com/gioi-thieu' },
   ]
 
   return (
     <>
       <StructuredData data={getBreadcrumbSchema(breadcrumbItems)} />
+      <StructuredData data={getOrganizationSchema()} />
       <Header />
       <main className="pt-20">
         {/* Hero */}
@@ -178,11 +180,14 @@ export default function AboutPage() {
                     transition={{ duration: 0.2 }}
                     className="rounded-xl border border-border bg-card p-6 text-center h-full"
                   >
-                    <div className="mx-auto h-24 w-24 rounded-full bg-secondary flex items-center justify-center">
-                      <span className="text-3xl font-bold text-accent">
+                    <PlaceholderImage 
+                      variant="team" 
+                      className="mx-auto h-32 w-32 rounded-full"
+                    >
+                      <span className="text-4xl font-bold text-white">
                         {member.name.split(" ").pop()?.charAt(0)}
                       </span>
-                    </div>
+                    </PlaceholderImage>
                     <h3 className="mt-6 text-lg font-semibold text-foreground">{member.name}</h3>
                     <p className="text-sm text-accent">{member.role}</p>
                     <p className="mt-3 text-sm text-muted-foreground leading-relaxed">

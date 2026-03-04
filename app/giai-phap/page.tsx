@@ -3,7 +3,10 @@
 import Link from "next/link"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { PlaceholderImage } from "@/components/ui/placeholder-image"
 import { FadeInUp, StaggerContainer, StaggerItem, motion } from "@/components/motion"
+import { StructuredData } from "@/components/seo/structured-data"
+import { getBreadcrumbSchema } from "@/lib/seo/schemas"
 import { Utensils, Sparkles, Hotel, GraduationCap, ShoppingBag, Stethoscope, ArrowRight, Dumbbell, Factory, Truck } from "lucide-react"
 
 const solutions = [
@@ -73,8 +76,14 @@ const solutions = [
 ]
 
 export default function SolutionsPage() {
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: 'Trang chủ', url: 'https://mekongix.com' },
+    { name: 'Giải pháp', url: 'https://mekongix.com/giai-phap' },
+  ])
+
   return (
     <>
+      <StructuredData data={breadcrumbSchema} />
       <Header />
       <main className="pt-20">
         <section className="py-24 lg:py-32 bg-secondary">
@@ -99,22 +108,31 @@ export default function SolutionsPage() {
                   <Link href={solution.href}>
                     <motion.div
                       whileHover={{ scale: 1.02, y: -4 }}
-                      className="p-6 rounded-xl border border-border bg-card h-full group"
+                      className="rounded-xl border border-border bg-card overflow-hidden h-full group"
                     >
-                      <solution.icon className="h-12 w-12 text-accent mb-4" />
-                      <h3 className="text-xl font-semibold text-foreground mb-2 group-hover:text-accent transition-colors">
-                        {solution.title}
-                      </h3>
-                      <p className="text-muted-foreground mb-4">{solution.description}</p>
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        {solution.keywords.map((keyword) => (
-                          <span key={keyword} className="text-xs px-2 py-1 rounded-full bg-secondary text-muted-foreground">
-                            {keyword}
-                          </span>
-                        ))}
-                      </div>
-                      <div className="flex items-center text-accent font-medium">
-                        Tìm hiểu thêm <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                      {/* Solution image */}
+                      <PlaceholderImage 
+                        variant="product" 
+                        className="w-full aspect-[16/9]"
+                      >
+                        <solution.icon className="h-16 w-16 text-white/90" />
+                      </PlaceholderImage>
+
+                      <div className="p-6">
+                        <h3 className="text-xl font-semibold text-foreground mb-2 group-hover:text-accent transition-colors">
+                          {solution.title}
+                        </h3>
+                        <p className="text-muted-foreground mb-4">{solution.description}</p>
+                        <div className="flex flex-wrap gap-2 mb-4">
+                          {solution.keywords.map((keyword) => (
+                            <span key={keyword} className="text-xs px-2 py-1 rounded-full bg-secondary text-muted-foreground">
+                              {keyword}
+                            </span>
+                          ))}
+                        </div>
+                        <div className="flex items-center text-accent font-medium">
+                          Tìm hiểu thêm <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                        </div>
                       </div>
                     </motion.div>
                   </Link>

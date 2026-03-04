@@ -1,20 +1,22 @@
 "use client"
 
+import Image from "next/image"
 import { CheckCircle2 } from "lucide-react"
+import { PlaceholderImage } from "@/components/ui/placeholder-image"
 import { FadeInUp, FadeInLeft, FadeInRight, StaggerContainer, StaggerItem, motion } from "@/components/motion"
 
 const highlights = [
-  "Đội ngũ chuyên gia giàu kinh nghiệm",
-  "Quy trình phát triển chuẩn Agile",
-  "Hỗ trợ kỹ thuật 24/7",
-  "Cam kết bảo mật dữ liệu",
+  "Team tech đam mê và sáng tạo",
+  "Làm việc linh hoạt theo Agile",
+  "Luôn sẵn sàng hỗ trợ bạn",
+  "Bảo mật là ưu tiên hàng đầu",
 ]
 
 const stats = [
-  { value: "10+", label: "Năm kinh nghiệm" },
-  { value: "200+", label: "Dự án hoàn thành" },
-  { value: "50+", label: "Khách hàng doanh nghiệp" },
-  { value: "98%", label: "Khách hàng hài lòng" },
+  { value: "5+", label: "Năm phát triển" },
+  { value: "50+", label: "Dự án thành công" },
+  { value: "30+", label: "Đối tác tin tưởng" },
+  { value: "100%", label: "Tận tâm với khách hàng" },
 ]
 
 export function AboutSection() {
@@ -28,13 +30,13 @@ export function AboutSection() {
               Về Mekongix
             </span>
             <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground sm:text-4xl text-balance">
-              Đối tác công nghệ chiến lược cho hành trình số hóa
+              Đồng hành cùng bạn trong hành trình số hóa
             </h2>
             <p className="mt-6 text-muted-foreground leading-relaxed">
-              Với hơn 10 năm kinh nghiệm trong lĩnh vực phát triển phần mềm, Mekongix đã đồng hành 
-              cùng hàng trăm doanh nghiệp trong hành trình chuyển đổi số. Chúng tôi không chỉ cung cấp 
-              giải pháp công nghệ, mà còn là đối tác chiến lược giúp doanh nghiệp tối ưu hóa quy trình 
-              và nâng cao năng lực cạnh tranh.
+              Mekongix với đam mê biến ý tưởng thành sản phẩm. 
+              Chúng mình không chỉ code, mà còn thấu hiểu vấn đề của bạn để đưa ra giải pháp 
+              phù hợp nhất. Từ MVP đến scale-up, chúng mình sẽ là đối tác đáng tin cậy 
+              giúp doanh nghiệp bạn phát triển bền vững.
             </p>
             
             <ul className="mt-8 space-y-4">
@@ -54,21 +56,36 @@ export function AboutSection() {
             </ul>
           </FadeInLeft>
 
-          {/* Stats */}
-          <StaggerContainer className="grid grid-cols-2 gap-6">
-            {stats.map((stat) => (
-              <StaggerItem key={stat.label}>
-                <motion.div
-                  whileHover={{ scale: 1.02, y: -4 }}
-                  transition={{ duration: 0.2 }}
-                  className="rounded-xl border border-border bg-card p-8 text-center"
-                >
-                  <div className="text-4xl font-bold text-accent">{stat.value}</div>
-                  <div className="mt-2 text-sm text-muted-foreground">{stat.label}</div>
-                </motion.div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
+          {/* Image & Stats */}
+          <FadeInRight>
+            <div className="space-y-6">
+              {/* Placeholder image */}
+              <PlaceholderImage 
+                variant="about" 
+                className="w-full aspect-[4/3] rounded-xl"
+              >
+                <div className="text-white/90 text-center p-8">
+                  <div className="text-6xl font-bold mb-2">5+</div>
+                  <div className="text-lg">Năm phát triển</div>
+                </div>
+              </PlaceholderImage>
+
+              {/* Stats grid */}
+              <div className="grid grid-cols-3 gap-4">
+                {stats.slice(1).map((stat) => (
+                  <motion.div
+                    key={stat.label}
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.2 }}
+                    className="rounded-lg border border-border bg-card p-4 text-center"
+                  >
+                    <div className="text-2xl font-bold text-accent">{stat.value}</div>
+                    <div className="mt-1 text-xs text-muted-foreground">{stat.label}</div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </FadeInRight>
         </div>
       </div>
     </section>

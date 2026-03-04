@@ -21,9 +21,11 @@ export default function CRMBlogPost() {
     '@type': 'Article',
     headline: 'CRM là gì? Lợi ích của phần mềm CRM cho doanh nghiệp',
     description: 'Tìm hiểu CRM là gì, tính năng, lợi ích và cách chọn phần mềm CRM phù hợp',
+    image: 'https://mekongix.com/logo.png',
     author: { '@type': 'Organization', name: 'Mekongix' },
     publisher: { '@type': 'Organization', name: 'Mekongix', logo: { '@type': 'ImageObject', url: 'https://mekongix.com/logo.png' } },
     datePublished: '2026-03-03',
+    dateModified: '2026-03-03',
   }
 
   return (

@@ -4,9 +4,10 @@ import Link from "next/link"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
+import { PlaceholderImage } from "@/components/ui/placeholder-image"
 import { FadeInUp, FadeInLeft, FadeInRight, StaggerContainer, StaggerItem, motion } from "@/components/motion"
 import { StructuredData } from "@/components/seo/structured-data"
-import { getBreadcrumbSchema } from "@/lib/seo/schemas"
+import { getBreadcrumbSchema, getProductSchema } from "@/lib/seo/schemas"
 import { 
   ArrowRight, 
   Users, 
@@ -106,6 +107,7 @@ export default function ProductsPage() {
   return (
     <>
       <StructuredData data={getBreadcrumbSchema(breadcrumbItems)} />
+      <StructuredData data={getProductSchema()} />
       <Header />
       <main className="pt-20">
         {/* Hero */}
@@ -143,11 +145,19 @@ export default function ProductsPage() {
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.3, delay: 0.5 }}
-                        className="absolute top-4 right-4 rounded-full bg-accent px-3 py-1 text-xs font-medium text-accent-foreground"
+                        className="absolute top-4 right-4 rounded-full bg-accent px-3 py-1 text-xs font-medium text-accent-foreground z-10"
                       >
                         Phổ biến nhất
                       </motion.div>
                     )}
+
+                    {/* Product image */}
+                    <PlaceholderImage 
+                      variant="product" 
+                      className="w-full aspect-[16/9]"
+                    >
+                      <product.icon className="h-16 w-16 text-white/90" />
+                    </PlaceholderImage>
 
                     <div className="p-8">
                       {/* Header */}

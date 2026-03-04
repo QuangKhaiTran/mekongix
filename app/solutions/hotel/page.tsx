@@ -1,3 +1,4 @@
+import { Metadata } from 'next'
 import { StructuredData } from '@/components/seo/structured-data'
 import { getBreadcrumbSchema } from '@/lib/seo/schemas'
 import { Button } from '@/components/ui/button'
@@ -15,6 +16,36 @@ import {
   ArrowRight
 } from 'lucide-react'
 import Link from 'next/link'
+
+export const metadata: Metadata = {
+  title: 'Phần mềm quản lý khách sạn & Resort (PMS)',
+  description: 'Giải pháp PMS toàn diện cho khách sạn, resort: Quản lý đặt phòng, check-in/out, housekeeping, tích hợp OTA. Tăng tỷ lệ lấp đầy 20-30%, tối ưu doanh thu.',
+  keywords: ['phần mềm quản lý khách sạn', 'PMS', 'hotel management system', 'phần mềm resort', 'quản lý đặt phòng', 'tích hợp OTA', 'Booking.com', 'Agoda', 'phần mềm khách sạn giá rẻ', 'phần mềm quản lý khách sạn miễn phí', 'phần mềm PMS Việt Nam', 'phần mềm quản lý homestay', 'phần mềm quản lý nhà nghỉ', 'phần mềm check-in khách sạn', 'phần mềm housekeeping', 'phần mềm quản lý phòng', 'hệ thống quản lý khách sạn', 'giải pháp khách sạn', 'phần mềm khách sạn tốt nhất', 'so sánh phần mềm khách sạn', 'top phần mềm PMS', 'báo giá phần mềm khách sạn', 'chi phí phần mềm PMS', 'tích hợp OTA Việt Nam', 'phần mềm đặt phòng online', 'quản lý revenue khách sạn'],
+  alternates: {
+    canonical: 'https://mekongix.com/solutions/hotel',
+  },
+  openGraph: {
+    title: 'Phần mềm quản lý khách sạn & Resort | Mekongix',
+    description: 'Giải pháp PMS toàn diện cho khách sạn, resort. Tăng tỷ lệ lấp đầy, tối ưu doanh thu.',
+    url: 'https://mekongix.com/solutions/hotel',
+    type: 'website',
+    locale: 'vi_VN',
+    images: [
+      {
+        url: '/logo.png',
+        width: 1200,
+        height: 630,
+        alt: 'Phần mềm quản lý khách sạn Mekongix',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Phần mềm quản lý khách sạn & Resort | Mekongix',
+    description: 'Giải pháp PMS toàn diện cho khách sạn, resort',
+    images: ['/logo.png'],
+  },
+}
 
 export default function HotelSolutionPage() {
   const breadcrumbSchema = getBreadcrumbSchema([

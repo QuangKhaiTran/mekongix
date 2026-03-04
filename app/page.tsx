@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     url: 'https://mekongix.com',
     images: [
       {
-        url: '/og-home.jpg',
+        url: '/logo.png',
         width: 1200,
         height: 630,
         alt: 'Mekongix - Chuyển đổi số cho doanh nghiệp',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Mekongix | Giải pháp phần mềm doanh nghiệp',
     description: 'Đối tác công nghệ đáng tin cậy cho doanh nghiệp Việt Nam',
-    images: ['/og-home.jpg'],
+    images: ['/logo.png'],
   },
 }
 

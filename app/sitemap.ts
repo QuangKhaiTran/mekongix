@@ -4,6 +4,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://mekongix.com'
   const currentDate = new Date()
 
+  // Dynamic solution routes
+  const solutionSlugs = [
+    'nha-hang',
+    'spa-salon', 
+    'khach-san',
+    'ban-le',
+    'phong-kham',
+    'truong-hoc',
+    'phong-gym',
+    'san-xuat',
+    'van-tai'
+  ]
+
+  const solutionPages = solutionSlugs.map(slug => ({
+    url: `${baseUrl}/giai-phap/${slug}`,
+    lastModified: currentDate,
+    changeFrequency: 'monthly' as const,
+    priority: 0.6,
+  }))
+
   return [
     {
       url: baseUrl,
@@ -29,6 +49,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.8,
     },
+    {
+      url: `${baseUrl}/solutions/hotel`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    ...solutionPages,
     {
       url: `${baseUrl}/bai-viet`,
       lastModified: currentDate,

@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { useState } from "react"
 import { usePathname } from "next/navigation"
 import { Menu, X, Home, Users, Briefcase, Package, BookOpen, Mail } from "lucide-react"
@@ -28,12 +29,17 @@ export function Header() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-1 lg:px-8">
         <div className="flex lg:flex-1">
-          <Link href="/" className="-m-1.5 p-1.5">
-            <span className="text-2xl font-bold text-foreground">
-              Mekong<span className="text-accent">ix</span>
-            </span>
+          <Link href="/" className="p-0">
+            <Image
+              src="/logo.png"
+              alt="Mekongix"
+              width={357}
+              height={344}
+              className="h-12 w-auto md:h-13 lg:h-14 object-contain transition-transform hover:scale-105"
+              priority
+            />
           </Link>
         </div>
         <div className="flex lg:hidden">
@@ -51,12 +57,16 @@ export function Header() {
               side="right" 
               className="w-full max-w-sm p-0 flex flex-col h-full [&>button]:hidden"
             >
-              <SheetHeader className="border-b border-border bg-background px-6 py-4 shrink-0">
+              <SheetHeader className="border-b border-border bg-background px-6 py-1 shrink-0">
                 <SheetTitle className="flex items-center justify-between">
                   <Link href="/" onClick={() => setMobileMenuOpen(false)}>
-                    <span className="text-2xl font-bold text-foreground">
-                      Mekong<span className="text-accent">ix</span>
-                    </span>
+                    <Image
+                      src="/logo.png"
+                      alt="Mekongix"
+                      width={357}
+                      height={344}
+                      className="h-12 w-auto object-contain"
+                    />
                   </Link>
                   <button
                     type="button"

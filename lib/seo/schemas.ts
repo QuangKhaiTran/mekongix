@@ -89,3 +89,78 @@ export function getBreadcrumbSchema(items: Array<{ name: string; url: string }>)
     })),
   }
 }
+
+export function getLocalBusinessSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: 'Mekongix',
+    image: 'https://mekongix.com/logo.png',
+    '@id': 'https://mekongix.com',
+    url: 'https://mekongix.com',
+    telephone: '+84-xxx-xxx-xxx',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '[Địa chỉ]',
+      addressLocality: 'Hồ Chí Minh',
+      addressCountry: 'VN',
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 10.762622,
+      longitude: 106.660172,
+    },
+    openingHoursSpecification: {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '08:00',
+      closes: '18:00',
+    },
+    sameAs: [
+      'https://www.facebook.com/mekongix',
+      'https://www.linkedin.com/company/mekongix',
+    ],
+  }
+}
+
+export function getProductSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    itemListElement: [
+      {
+        '@type': 'SoftwareApplication',
+        name: 'Phần mềm ERP',
+        applicationCategory: 'BusinessApplication',
+        operatingSystem: 'Web, Windows, macOS',
+        offers: {
+          '@type': 'Offer',
+          price: '0',
+          priceCurrency: 'VND',
+        },
+      },
+      {
+        '@type': 'SoftwareApplication',
+        name: 'Phần mềm CRM',
+        applicationCategory: 'BusinessApplication',
+        operatingSystem: 'Web, Windows, macOS',
+        offers: {
+          '@type': 'Offer',
+          price: '0',
+          priceCurrency: 'VND',
+        },
+      },
+      {
+        '@type': 'SoftwareApplication',
+        name: 'Phần mềm HRM',
+        applicationCategory: 'BusinessApplication',
+        operatingSystem: 'Web, Windows, macOS',
+        offers: {
+          '@type': 'Offer',
+          price: '0',
+          priceCurrency: 'VND',
+        },
+      },
+    ],
+  }
+}

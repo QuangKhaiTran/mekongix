@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { Mail, Phone, MapPin, Linkedin, Facebook } from "lucide-react"
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/motion"
 
@@ -29,10 +30,14 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-4">
           {/* Brand */}
           <FadeInUp className="lg:col-span-1">
-            <Link href="/" className="inline-block">
-              <span className="text-2xl font-bold text-foreground">
-                Mekong<span className="text-accent">ix</span>
-              </span>
+            <Link href="/" className="inline-block group">
+              <Image
+                src="/logo.png"
+                alt="Mekongix"
+                width={357}
+                height={344}
+                className="h-16 w-auto object-contain transition-transform group-hover:scale-105"
+              />
             </Link>
             <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
               Đối tác công nghệ đáng tin cậy cho hành trình chuyển đổi số của doanh nghiệp bạn.

@@ -1,7 +1,9 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
+import { PlaceholderImage } from "@/components/ui/placeholder-image"
 import { ArrowRight, Code2, Database, Cloud } from "lucide-react"
 import { motion } from "framer-motion"
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/motion"

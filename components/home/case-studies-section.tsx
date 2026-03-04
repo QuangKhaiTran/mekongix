@@ -1,7 +1,9 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { ArrowRight } from "lucide-react"
+import { PlaceholderImage } from "@/components/ui/placeholder-image"
 import { FadeInUp, FadeInLeft, StaggerContainer, StaggerItem, motion } from "@/components/motion"
 
 const caseStudies = [
@@ -68,8 +70,11 @@ export function CaseStudiesSection() {
                 transition={{ duration: 0.2 }}
                 className="group relative rounded-xl border border-border bg-card overflow-hidden hover:border-accent/50 transition-all duration-300 h-full"
               >
-                {/* Gradient top bar */}
-                <div className="h-1 bg-gradient-to-r from-accent to-accent/50" />
+                {/* Project image */}
+                <PlaceholderImage 
+                  variant="project" 
+                  className="w-full aspect-[16/9]"
+                />
                 
                 <div className="p-6">
                   <span className="text-xs font-medium text-accent uppercase tracking-wider">

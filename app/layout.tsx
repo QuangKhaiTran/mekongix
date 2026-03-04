@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     template: '%s | Mekongix'
   },
   description: 'Mekongix - Công ty phát triển phần mềm hàng đầu Việt Nam. Chuyên cung cấp giải pháp ERP, CRM, phần mềm quản lý doanh nghiệp, phát triển web app và ứng dụng di động. Đối tác chuyển đổi số đáng tin cậy.',
-  keywords: ['phát triển phần mềm', 'công ty phần mềm Việt Nam', 'giải pháp ERP', 'phần mềm CRM', 'phát triển web app', 'phát triển ứng dụng di động', 'phần mềm quản lý doanh nghiệp', 'hệ thống quản lý', 'chuyển đổi số', 'phần mềm SaaS', 'dịch vụ phát triển phần mềm'],
+  keywords: ['phát triển phần mềm', 'công ty phần mềm Việt Nam', 'giải pháp ERP', 'phần mềm CRM', 'phát triển web app', 'phát triển ứng dụng di động', 'phần mềm quản lý doanh nghiệp', 'hệ thống quản lý', 'chuyển đổi số', 'phần mềm SaaS', 'dịch vụ phát triển phần mềm', 'phần mềm quản lý miễn phí', 'phần mềm quản lý bán hàng', 'phần mềm quản lý kho', 'phần mềm kế toán', 'phần mềm nhân sự', 'phần mềm quản lý công việc', 'phần mềm quản lý dự án', 'phần mềm quản lý khách hàng', 'phần mềm quản lý tồn kho', 'phần mềm quản lý cửa hàng', 'phần mềm quản lý nhà hàng', 'phần mềm quản lý spa', 'phần mềm quản lý khách sạn', 'phần mềm quản lý xưởng', 'phần mềm quản lý sản xuất', 'phần mềm quản lý vận tải', 'phần mềm quản lý logistics', 'phần mềm quản lý trường học', 'phần mềm quản lý phòng gym', 'phần mềm quản lý phòng khám', 'phần mềm quản lý giá rẻ', 'phần mềm quản lý online', 'phần mềm quản lý đám mây', 'phần mềm quản lý trên điện thoại', 'phần mềm quản lý Việt Nam', 'phần mềm quản lý tốt nhất', 'phần mềm quản lý uy tín', 'phần mềm quản lý chuyên nghiệp'],
   authors: [{ name: 'Mekongix' }],
   creator: 'Mekongix',
   publisher: 'Mekongix',
@@ -32,16 +32,12 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
+        url: '/icon.png',
+        type: 'image/png',
       },
       {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
+        url: '/favicon.ico',
+        type: 'image/x-icon',
       },
     ],
     apple: '/apple-icon.png',
@@ -55,7 +51,7 @@ export const metadata: Metadata = {
     description: 'Đối tác công nghệ đáng tin cậy cho doanh nghiệp Việt Nam',
     images: [
       {
-        url: '/og-image.jpg',
+        url: '/logo.png',
         width: 1200,
         height: 630,
         alt: 'Mekongix - Giải pháp phần mềm doanh nghiệp',
@@ -66,7 +62,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Mekongix | Giải pháp phần mềm doanh nghiệp',
     description: 'Đối tác công nghệ đáng tin cậy cho doanh nghiệp Việt Nam',
-    images: ['/og-image.jpg'],
+    images: ['/logo.png'],
   },
 }
 
