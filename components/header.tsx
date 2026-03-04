@@ -28,7 +28,7 @@ export function Header() {
   const pathname = usePathname()
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/60 border-b border-border">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-1 lg:px-8">
         <div className="flex lg:flex-1 flex-1 justify-center lg:justify-start">
           <Link href="/" className="p-0">
