@@ -30,7 +30,7 @@ export function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-1 lg:px-8">
-        <div className="flex lg:flex-1">
+        <div className="flex lg:flex-1 flex-1 justify-center lg:justify-start">
           <Link href="/" className="p-0">
             <Image
               src="/logo.png"
@@ -42,12 +42,13 @@ export function Header() {
             />
           </Link>
         </div>
-        <div className="flex lg:hidden">
+        <div className="flex lg:hidden absolute right-6" suppressHydrationWarning>
           <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
             <SheetTrigger asChild>
               <button
                 type="button"
                 className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-foreground"
+                suppressHydrationWarning
               >
                 <span className="sr-only">Open main menu</span>
                 <Menu className="h-6 w-6" aria-hidden="true" />
@@ -58,7 +59,7 @@ export function Header() {
               className="w-full max-w-sm p-0 flex flex-col h-full [&>button]:hidden"
             >
               <SheetHeader className="border-b border-border bg-background px-6 py-1 shrink-0">
-                <SheetTitle className="flex items-center justify-between">
+                <SheetTitle className="flex items-center justify-center relative">
                   <Link href="/" onClick={() => setMobileMenuOpen(false)}>
                     <Image
                       src="/logo.png"
@@ -70,7 +71,7 @@ export function Header() {
                   </Link>
                   <button
                     type="button"
-                    className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-foreground hover:bg-secondary transition-colors"
+                    className="absolute right-0 -m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-foreground hover:bg-secondary transition-colors"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     <span className="sr-only">Close menu</span>

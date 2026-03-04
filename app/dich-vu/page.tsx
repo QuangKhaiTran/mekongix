@@ -139,7 +139,7 @@ export default function ServicesPage() {
       <StructuredData data={getServiceSchema()} />
       <StructuredData data={getBreadcrumbSchema(breadcrumbItems)} />
       <Header />
-      <main className="pt-20">
+      <main className="pt-20 overflow-x-hidden">
         {/* Hero */}
         <section className="py-24 lg:py-32 bg-secondary">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
