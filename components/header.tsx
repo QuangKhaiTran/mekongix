@@ -4,7 +4,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { useState } from "react"
 import { usePathname } from "next/navigation"
-import { Menu, X, Home, Users, Briefcase, Package, BookOpen, Mail } from "lucide-react"
+import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
   Sheet,
@@ -15,12 +15,12 @@ import {
 } from "@/components/ui/sheet"
 
 const navigation = [
-  { name: "Trang chủ", href: "/", icon: Home },
-  { name: "Về chúng tôi", href: "/gioi-thieu", icon: Users },
-  { name: "Dịch vụ", href: "/dich-vu", icon: Briefcase },
-  { name: "Giải pháp", href: "/giai-phap", icon: Package },
-  { name: "Blog", href: "/bai-viet", icon: BookOpen },
-  { name: "Liên hệ", href: "/lien-he", icon: Mail },
+  { name: "Trang chủ", href: "/" },
+  { name: "Về chúng tôi", href: "/gioi-thieu" },
+  { name: "Dịch vụ", href: "/dich-vu" },
+  { name: "Giải pháp", href: "/giai-phap" },
+  { name: "Blog", href: "/bai-viet" },
+  { name: "Liên hệ", href: "/lien-he" },
 ]
 
 export function Header() {
@@ -83,30 +83,19 @@ export function Header() {
                 <nav className="flex flex-col h-full">
                   <div className="space-y-1">
                     {navigation.map((item) => {
-                      const Icon = item.icon
                       const isActive = pathname === item.href
                       return (
                         <div key={item.name} className="group">
                           <Link
                             href={item.href}
-                            className={`relative flex items-center gap-3 rounded-lg px-3 py-2 text-base font-medium transition-all duration-300 group-hover:translate-x-1 ${
+                            className={`relative flex items-center justify-center rounded-lg px-3 py-2 text-base font-medium transition-all duration-300 ${
                               isActive
-                                ? "bg-accent/10 text-foreground border-l-4 border-accent"
+                                ? "bg-accent/10 text-foreground"
                                 : "text-foreground hover:bg-secondary"
                             }`}
                             onClick={() => setMobileMenuOpen(false)}
                           >
-                            <Icon
-                              className={`h-5 w-5 shrink-0 transition-all duration-200 ${
-                                isActive
-                                  ? "scale-110 text-accent"
-                                  : "group-hover:scale-105"
-                              }`}
-                            />
                             <span className="relative z-10">{item.name}</span>
-                            {isActive && (
-                              <div className="absolute left-0 top-0 bottom-0 w-1 bg-accent rounded-r-full transition-all duration-300" />
-                            )}
                           </Link>
                         </div>
                       )
@@ -128,13 +117,12 @@ export function Header() {
         </div>
         <div className="hidden lg:flex lg:gap-x-8">
           {navigation.map((item) => {
-            const Icon = item.icon
             const isActive = pathname === item.href
             return (
               <div key={item.name} className="relative">
                 <Link
                   href={item.href}
-                  className={`relative flex items-center gap-2 text-sm font-medium transition-all duration-300 ${
+                  className={`relative flex items-center text-sm font-medium transition-all duration-300 ${
                     isActive
                       ? "text-foreground"
                       : "text-muted-foreground hover:text-foreground"
@@ -145,11 +133,6 @@ export function Header() {
                       isActive
                         ? "opacity-100 scale-x-100"
                         : "opacity-0 scale-x-0"
-                    }`}
-                  />
-                  <Icon
-                    className={`h-4 w-4 shrink-0 transition-all duration-200 ${
-                      isActive ? "scale-110 text-accent" : ""
                     }`}
                   />
                   <span className="relative z-10">{item.name}</span>
