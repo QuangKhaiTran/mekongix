@@ -1,14 +1,23 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Phone } from "lucide-react"
 import { FadeInLeft, FadeInRight, motion } from "@/components/motion"
 
 export function CTASection() {
   return (
-    <section className="py-24 lg:py-32 bg-muted">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <section className="relative overflow-hidden py-24 lg:py-32 bg-muted">
+      <Image
+        src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1800&q=80"
+        alt="Tư vấn giải pháp công nghệ cho doanh nghiệp"
+        fill
+        className="object-cover opacity-20"
+        sizes="100vw"
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-muted/80 via-muted/65 to-muted/80" />
+      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

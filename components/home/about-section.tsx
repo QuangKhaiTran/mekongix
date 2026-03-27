@@ -63,12 +63,7 @@ export function AboutSection() {
               <PlaceholderImage 
                 variant="about" 
                 className="w-full aspect-[4/3] rounded-xl"
-              >
-                <div className="text-white/90 text-center p-8">
-                  <div className="text-6xl font-bold mb-2">5+</div>
-                  <div className="text-lg">Năm phát triển</div>
-                </div>
-              </PlaceholderImage>
+              />
 
               {/* Stats grid */}
               <div className="grid grid-cols-3 gap-4">

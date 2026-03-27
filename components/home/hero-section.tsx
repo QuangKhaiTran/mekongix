@@ -11,11 +11,14 @@ import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/motion"
 export function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-primary/20 via-background to-background" />
-      
-      {/* Subtle grid pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.03)_1px,transparent_1px)] bg-[size:64px_64px]" />
+      <Image
+        src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=2000&q=80"
+        alt="Đội ngũ công nghệ phát triển giải pháp doanh nghiệp"
+        fill
+        className="object-cover opacity-32"
+        sizes="100vw"
+        priority
+      />
 
       <div className="relative mx-auto max-w-7xl px-6 py-24 lg:px-8 lg:py-32">
         <div className="text-center">

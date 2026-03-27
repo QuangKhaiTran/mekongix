@@ -2,6 +2,7 @@
 
 import React from "react"
 import { useState } from "react"
+import Image from "next/image"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
@@ -81,9 +82,18 @@ export default function ContactPage() {
       <Header />
       <main className="pt-20">
         {/* Hero */}
-        <section className="py-24 lg:py-32 bg-secondary">
+        <section className="relative overflow-hidden py-24 lg:py-32 bg-secondary">
+          <Image
+            src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1800&q=80"
+            alt="Đội ngũ tư vấn và hỗ trợ khách hàng"
+            fill
+            className="object-cover opacity-30"
+            sizes="100vw"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-secondary/65 via-secondary/50 to-secondary/65" />
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <FadeInUp className="max-w-3xl">
+            <FadeInUp className="relative z-10 max-w-3xl">
               <span className="text-sm font-medium text-accent uppercase tracking-wider">
                 Liên hệ
               </span>
@@ -146,9 +156,18 @@ export default function ContactPage() {
                     transition={{ duration: 0.2 }}
                     className="mt-10 aspect-video rounded-xl border border-border bg-secondary overflow-hidden"
                   >
-                    <div className="w-full h-full flex items-center justify-center text-muted-foreground">
-                      <MapPin className="h-8 w-8 mr-2" />
-                      <span>Bản đồ vị trí</span>
+                    <div className="relative h-full w-full">
+                      <Image
+                        src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1400&q=80"
+                        alt="Bản đồ và vị trí văn phòng Mekongix"
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 1024px) 100vw, 50vw"
+                      />
+                      <div className="absolute inset-0 flex items-center justify-center bg-black/30 text-white">
+                        <MapPin className="mr-2 h-8 w-8" />
+                        <span className="font-medium">Bản đồ vị trí</span>
+                      </div>
                     </div>
                   </motion.div>
                 </FadeInUp>

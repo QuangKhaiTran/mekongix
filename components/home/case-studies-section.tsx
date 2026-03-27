@@ -3,7 +3,6 @@
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowRight } from "lucide-react"
-import { PlaceholderImage } from "@/components/ui/placeholder-image"
 import { FadeInUp, FadeInLeft, StaggerContainer, StaggerItem, motion } from "@/components/motion"
 
 const caseStudies = [
@@ -15,6 +14,7 @@ const caseStudies = [
       { label: "Giảm chi phí vận hành", value: "35%" },
       { label: "Tăng hiệu suất", value: "50%" },
     ],
+    image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=1400&q=80",
   },
   {
     title: "Nền tảng E-commerce B2B",
@@ -24,6 +24,7 @@ const caseStudies = [
       { label: "Giao dịch/tháng", value: "10K+" },
       { label: "Đối tác kinh doanh", value: "500+" },
     ],
+    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1400&q=80",
   },
   {
     title: "Ứng dụng quản lý nhân sự SaaS",
@@ -33,6 +34,7 @@ const caseStudies = [
       { label: "Doanh nghiệp sử dụng", value: "200+" },
       { label: "Nhân viên quản lý", value: "50K+" },
     ],
+    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1400&q=80",
   },
 ]
 
@@ -71,10 +73,16 @@ export function CaseStudiesSection() {
                 className="group relative rounded-xl border border-border bg-card overflow-hidden hover:border-accent/50 transition-all duration-300 h-full"
               >
                 {/* Project image */}
-                <PlaceholderImage 
-                  variant="project" 
-                  className="w-full aspect-[16/9]"
-                />
+                <div className="relative w-full aspect-[16/9] overflow-hidden">
+                  <Image
+                    src={study.image}
+                    alt={study.title}
+                    fill
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    sizes="(max-width: 1024px) 100vw, 33vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-tr from-black/20 via-transparent to-black/10" />
+                </div>
                 
                 <div className="p-6">
                   <span className="text-xs font-medium text-accent uppercase tracking-wider">

@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { FadeInUp, FadeInLeft, StaggerContainer, StaggerItem, motion } from "@/components/motion"
@@ -17,6 +18,7 @@ const featuredPost = {
   date: "15 Tháng 1, 2026",
   readTime: "8 phút đọc",
   slug: "xu-huong-chuyen-doi-so-2026",
+  image: "https://images.unsplash.com/photo-1518773553398-650c184e0bb3?auto=format&fit=crop&w=1600&q=80",
 }
 
 const posts = [
@@ -28,6 +30,7 @@ const posts = [
     date: "10 Tháng 1, 2026",
     readTime: "6 phút đọc",
     slug: "tai-sao-doanh-nghiep-can-erp",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
   },
   {
     title: "Microservices vs Monolithic: Nên chọn kiến trúc nào?",
@@ -37,6 +40,7 @@ const posts = [
     date: "5 Tháng 1, 2026",
     readTime: "10 phút đọc",
     slug: "microservices-vs-monolithic",
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80",
   },
   {
     title: "Bảo mật ứng dụng web: Best practices năm 2026",
@@ -46,6 +50,7 @@ const posts = [
     date: "28 Tháng 12, 2025",
     readTime: "7 phút đọc",
     slug: "bao-mat-ung-dung-web-2026",
+    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80",
   },
   {
     title: "Tích hợp AI vào quy trình kinh doanh",
@@ -55,6 +60,7 @@ const posts = [
     date: "20 Tháng 12, 2025",
     readTime: "9 phút đọc",
     slug: "tich-hop-ai-quy-trinh-kinh-doanh",
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80",
   },
   {
     title: "Cloud-native development: Hướng dẫn cho người mới",
@@ -64,6 +70,7 @@ const posts = [
     date: "15 Tháng 12, 2025",
     readTime: "12 phút đọc",
     slug: "cloud-native-development-guide",
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80",
   },
   {
     title: "UX Design cho ứng dụng doanh nghiệp",
@@ -73,6 +80,7 @@ const posts = [
     date: "10 Tháng 12, 2025",
     readTime: "5 phút đọc",
     slug: "ux-design-ung-dung-doanh-nghiep",
+    image: "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=1200&q=80",
   },
 ]
 
@@ -99,9 +107,18 @@ export default function BlogPage() {
       <Header />
       <main className="pt-20">
         {/* Hero */}
-        <section className="py-24 lg:py-32 bg-secondary">
+        <section className="relative overflow-hidden py-24 lg:py-32 bg-secondary">
+          <Image
+            src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1800&q=80"
+            alt="Tin tức và kiến thức công nghệ"
+            fill
+            className="object-cover opacity-30"
+            sizes="100vw"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-secondary/65 via-secondary/50 to-secondary/65" />
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <FadeInUp className="max-w-3xl">
+            <FadeInUp className="relative z-10 max-w-3xl">
               <span className="text-sm font-medium text-accent uppercase tracking-wider">
                 Blog & Insights
               </span>
@@ -153,8 +170,15 @@ export default function BlogPage() {
                   className="rounded-xl border border-border bg-card overflow-hidden hover:border-accent/50 transition-all duration-300"
                 >
                   <div className="grid grid-cols-1 lg:grid-cols-2">
-                    {/* Image placeholder */}
-                    <div className="aspect-video lg:aspect-auto bg-gradient-to-br from-primary to-secondary" />
+                    <div className="relative aspect-video lg:aspect-auto">
+                      <Image
+                        src={featuredPost.image}
+                        alt={featuredPost.title}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 1024px) 100vw, 50vw"
+                      />
+                    </div>
                     
                     {/* Content */}
                     <div className="p-8 lg:p-12 flex flex-col justify-center">
@@ -201,8 +225,15 @@ export default function BlogPage() {
                       transition={{ duration: 0.2 }}
                       className="rounded-xl border border-border bg-card overflow-hidden hover:border-accent/50 transition-all duration-300 h-full"
                     >
-                      {/* Image placeholder */}
-                      <div className="aspect-video bg-gradient-to-br from-secondary to-primary/20" />
+                      <div className="relative aspect-video">
+                        <Image
+                          src={post.image}
+                          alt={post.title}
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 768px) 100vw, 33vw"
+                        />
+                      </div>
                       
                       {/* Content */}
                       <div className="p-6">
@@ -246,8 +277,16 @@ export default function BlogPage() {
         </section>
 
         {/* Newsletter */}
-        <section className="py-24 lg:py-32 bg-muted">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <section className="relative overflow-hidden py-24 lg:py-32 bg-muted">
+          <Image
+            src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1800&q=80"
+            alt="Đăng ký nhận bản tin công nghệ"
+            fill
+            className="object-cover opacity-20"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-muted/85 via-muted/70 to-muted/85" />
+          <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
             <FadeInUp>
               <motion.div
                 whileHover={{ scale: 1.01 }}

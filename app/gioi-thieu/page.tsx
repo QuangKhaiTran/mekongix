@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { PlaceholderImage } from "@/components/ui/placeholder-image"
@@ -63,9 +64,18 @@ export default function AboutPage() {
       <Header />
       <main className="pt-20">
         {/* Hero */}
-        <section className="py-24 lg:py-32 bg-secondary">
+        <section className="relative overflow-hidden py-24 lg:py-32 bg-secondary">
+          <Image
+            src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1800&q=80"
+            alt="Không gian làm việc hiện đại"
+            fill
+            className="object-cover opacity-45"
+            sizes="100vw"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-secondary/55 via-secondary/40 to-secondary/60" />
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <FadeInUp className="max-w-3xl">
+            <FadeInUp className="relative z-10 max-w-3xl">
               <span className="text-sm font-medium text-accent uppercase tracking-wider">
                 Về Mekongix
               </span>
@@ -127,9 +137,17 @@ export default function AboutPage() {
         </section>
 
         {/* Core Values */}
-        <section className="py-24 lg:py-32 bg-secondary">
+        <section className="relative overflow-hidden py-24 lg:py-32 bg-secondary">
+          <Image
+            src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1800&q=80"
+            alt="Đội ngũ hợp tác trong văn phòng"
+            fill
+            className="object-cover opacity-35"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-secondary/60 via-secondary/45 to-secondary/60" />
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <FadeInUp className="text-center max-w-2xl mx-auto">
+            <FadeInUp className="relative z-10 text-center max-w-2xl mx-auto">
               <span className="text-sm font-medium text-accent uppercase tracking-wider">
                 Giá trị cốt lõi
               </span>
@@ -138,7 +156,7 @@ export default function AboutPage() {
               </h2>
             </FadeInUp>
 
-            <StaggerContainer className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            <StaggerContainer className="relative z-10 mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
               {values.map((value) => (
                 <StaggerItem key={value.title}>
                   <motion.div
@@ -201,9 +219,17 @@ export default function AboutPage() {
         </section>
 
         {/* Long-term Direction */}
-        <section className="py-24 lg:py-32 bg-secondary">
+        <section className="relative overflow-hidden py-24 lg:py-32 bg-secondary">
+          <Image
+            src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1800&q=80"
+            alt="Định hướng phát triển công nghệ và dữ liệu"
+            fill
+            className="object-cover opacity-32"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-secondary/60 via-secondary/45 to-secondary/60" />
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <FadeInUp className="max-w-3xl mx-auto text-center">
+            <FadeInUp className="relative z-10 max-w-3xl mx-auto text-center">
               <span className="text-sm font-medium text-accent uppercase tracking-wider">
                 Định hướng phát triển
               </span>
@@ -216,7 +242,7 @@ export default function AboutPage() {
                 cho doanh nghiệp vừa và lớn.
               </p>
             </FadeInUp>
-            <StaggerContainer className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3 max-w-3xl mx-auto">
+            <StaggerContainer className="relative z-10 mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3 max-w-3xl mx-auto">
               <StaggerItem>
                 <motion.div
                   whileHover={{ scale: 1.05 }}

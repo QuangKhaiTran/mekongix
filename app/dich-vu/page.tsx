@@ -1,10 +1,10 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
-import { PlaceholderImage } from "@/components/ui/placeholder-image"
 import { FadeInUp, FadeInLeft, FadeInRight, StaggerContainer, StaggerItem, motion } from "@/components/motion"
 import { StructuredData } from "@/components/seo/structured-data"
 import { getServiceSchema, getBreadcrumbSchema } from "@/lib/seo/schemas"
@@ -42,6 +42,7 @@ const services = [
       "Giảm chi phí vận hành",
       "Nâng cao hình ảnh thương hiệu",
     ],
+    image: "https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?auto=format&fit=crop&w=1400&q=80",
   },
   {
     id: "enterprise",
@@ -62,6 +63,7 @@ const services = [
       "Kiểm soát chi phí tốt hơn",
       "Ra quyết định nhanh và chính xác",
     ],
+    image: "https://images.unsplash.com/photo-1552581234-26160f608093?auto=format&fit=crop&w=1400&q=80",
   },
   {
     id: "saas",
@@ -82,6 +84,7 @@ const services = [
       "Chi phí vận hành tối ưu",
       "Cập nhật tính năng liên tục",
     ],
+    image: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1400&q=80",
   },
   {
     id: "maintenance",
@@ -102,6 +105,7 @@ const services = [
       "Bảo vệ dữ liệu an toàn",
       "Yên tâm tập trung kinh doanh",
     ],
+    image: "https://images.unsplash.com/photo-1580894908361-967195033215?auto=format&fit=crop&w=1400&q=80",
   },
 ]
 
@@ -141,9 +145,18 @@ export default function ServicesPage() {
       <Header />
       <main className="pt-20 overflow-x-hidden">
         {/* Hero */}
-        <section className="py-24 lg:py-32 bg-secondary">
+        <section className="relative overflow-hidden py-24 lg:py-32 bg-secondary">
+          <Image
+            src="https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?auto=format&fit=crop&w=1800&q=80"
+            alt="Đội ngũ kỹ sư phần mềm đang làm việc"
+            fill
+            className="object-cover opacity-34"
+            sizes="100vw"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-secondary/60 via-secondary/45 to-secondary/60" />
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <FadeInUp className="max-w-3xl">
+            <FadeInUp className="relative z-10 max-w-3xl">
               <span className="text-sm font-medium text-accent uppercase tracking-wider">
                 Dịch vụ
               </span>
@@ -271,21 +284,29 @@ export default function ServicesPage() {
                   {/* Image */}
                   {index % 2 === 0 ? (
                     <FadeInRight>
-                      <PlaceholderImage 
-                        variant="product" 
-                        className="w-full aspect-[4/3] rounded-xl"
-                      >
-                        <service.icon className="h-20 w-20 text-white/90" />
-                      </PlaceholderImage>
+                      <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden">
+                        <Image
+                          src={service.image}
+                          alt={service.title}
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 1024px) 100vw, 50vw"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-tr from-black/20 via-transparent to-black/10" />
+                      </div>
                     </FadeInRight>
                   ) : (
                     <FadeInLeft className="lg:order-1">
-                      <PlaceholderImage 
-                        variant="product" 
-                        className="w-full aspect-[4/3] rounded-xl"
-                      >
-                        <service.icon className="h-20 w-20 text-white/90" />
-                      </PlaceholderImage>
+                      <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden">
+                        <Image
+                          src={service.image}
+                          alt={service.title}
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 1024px) 100vw, 50vw"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-tr from-black/20 via-transparent to-black/10" />
+                      </div>
                     </FadeInLeft>
                   )}
                 </div>
@@ -295,8 +316,16 @@ export default function ServicesPage() {
         </section>
 
         {/* CTA */}
-        <section className="py-24 lg:py-32 bg-muted">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <section className="relative overflow-hidden py-24 lg:py-32 bg-muted">
+          <Image
+            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1800&q=80"
+            alt="Đội ngũ tư vấn giải pháp công nghệ"
+            fill
+            className="object-cover opacity-22"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-muted/85 via-muted/70 to-muted/85" />
+          <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
             <FadeInUp>
               <motion.div
                 whileHover={{ scale: 1.01 }}

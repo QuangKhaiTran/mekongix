@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { FadeInUp, motion } from "@/components/motion"
 
 const steps = [
@@ -27,8 +28,16 @@ const steps = [
 
 export function WorkflowSection() {
   return (
-    <section className="py-24 lg:py-32 bg-secondary">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <section className="relative overflow-hidden py-24 lg:py-32 bg-secondary">
+      <Image
+        src="https://images.unsplash.com/photo-1531498860502-7c67cf02f657?auto=format&fit=crop&w=1800&q=80"
+        alt="Quy trình làm việc và quản lý dự án phần mềm"
+        fill
+        className="object-cover opacity-20"
+        sizes="100vw"
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-secondary/70 via-secondary/55 to-secondary/70" />
+      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
         {/* Header */}
         <FadeInUp className="text-center max-w-2xl mx-auto">
           <span className="text-sm font-medium text-accent uppercase tracking-wider">

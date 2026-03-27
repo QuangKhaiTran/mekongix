@@ -155,9 +155,7 @@ export default function ProductsPage() {
                     <PlaceholderImage 
                       variant="product" 
                       className="w-full aspect-[16/9]"
-                    >
-                      <product.icon className="h-16 w-16 text-white/90" />
-                    </PlaceholderImage>
+                    />
 
                     <div className="p-8">
                       {/* Header */}
